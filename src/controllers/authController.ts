@@ -71,7 +71,11 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       expiresIn: "7d",
     });
 
-    res.status(200).json({ success: true, token, userId: user.userId });
+    res.status(200).json({
+      success: true,
+      token,
+      userId: user.userId,
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: "Server error", error });
   }
